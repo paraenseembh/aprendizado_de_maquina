@@ -1,0 +1,180 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\title{Cálculo Manual do Ganho de Informação em Árvore de Decisão}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Conceitos Fundamentais}
+
+O \textbf{Ganho de Informação} mede quanto um atributo reduz a incerteza (entropia) sobre a classe alvo. Quanto maior o ganho, melhor o atributo para dividir os dados.
+
+\section{Fórmula Principal}
+
+\begin{equation}
+\text{Ganho}(S, A) = \text{Entropia}(S) - \sum_{v \in \text{Valores}(A)} \frac{|S_v|}{|S|} \times \text{Entropia}(S_v)
+\end{equation}
+
+Onde:
+\begin{itemize}
+    \item $S$ = conjunto de dados original
+    \item $A$ = atributo sendo avaliado
+    \item $S_v$ = subconjunto de $S$ onde o atributo $A$ tem valor $v$
+    \item $|S|$ = número total de exemplos em $S$
+\end{itemize}
+
+\section{Passo a Passo do Cálculo}
+
+\subsection{Passo 1: Calcular a Entropia do Conjunto Original}
+
+A entropia mede a impureza/desordem do conjunto:
+
+\begin{equation}
+\text{Entropia}(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)
+\end{equation}
+
+Onde $p_i$ é a proporção de exemplos da classe $i$ e $c$ é o número de classes.
+
+\subsection{Passo 2: Calcular a Entropia de Cada Subconjunto}
+
+Para cada valor possível do atributo, calcule a entropia do subconjunto resultante usando a mesma fórmula da equação (2).
+
+\subsection{Passo 3: Calcular a Entropia Ponderada}
+
+Multiplique cada entropia pela proporção de exemplos naquele subconjunto e some tudo:
+
+\begin{equation}
+E_{\text{ponderada}}(S, A) = \sum_{v \in \text{Valores}(A)} \frac{|S_v|}{|S|} \times \text{Entropia}(S_v)
+\end{equation}
+
+\subsection{Passo 4: Calcular o Ganho}
+
+Subtraia a entropia ponderada da entropia original (equação 1).
+
+\section{Exemplo Prático}
+
+Considere o problema de prever se alguém vai jogar tênis baseado nas condições climáticas:
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{ccccc}
+\toprule
+Tempo & Temperatura & Umidade & Vento & Joga? \\
+\midrule
+Sol & Quente & Alta & Não & Não \\
+Sol & Quente & Alta & Sim & Não \\
+Nublado & Quente & Alta & Não & Sim \\
+Chuva & Amena & Alta & Não & Sim \\
+Chuva & Fria & Normal & Não & Sim \\
+Chuva & Fria & Normal & Sim & Não \\
+Nublado & Fria & Normal & Sim & Sim \\
+Sol & Amena & Alta & Não & Não \\
+Sol & Fria & Normal & Não & Sim \\
+Chuva & Amena & Normal & Não & Sim \\
+Sol & Amena & Normal & Sim & Sim \\
+Nublado & Amena & Alta & Sim & Sim \\
+Nublado & Quente & Normal & Não & Sim \\
+Chuva & Amena & Alta & Sim & Não \\
+\bottomrule
+\end{tabular}
+\caption{Conjunto de dados para classificação}
+\end{table}
+
+Total: 14 exemplos $\rightarrow$ 9 ``Sim'' e 5 ``Não''
+
+\subsection{Calculando para o atributo ``Tempo''}
+
+\subsubsection{1. Entropia do conjunto total}
+
+\begin{align}
+\text{Entropia}(S) &= -\frac{9}{14}\log_2\left(\frac{9}{14}\right) - \frac{5}{14}\log_2\left(\frac{5}{14}\right) \\
+&= -0.643 \times (-0.637) - 0.357 \times (-1.485) \\
+&= 0.410 + 0.530 = 0.940
+\end{align}
+
+\subsubsection{2. Divisão por ``Tempo''}
+
+Contagem de exemplos por valor do atributo:
+\begin{itemize}
+    \item \textbf{Sol}: 5 exemplos (2 Sim, 3 Não)
+    \item \textbf{Nublado}: 4 exemplos (4 Sim, 0 Não)
+    \item \textbf{Chuva}: 5 exemplos (3 Sim, 2 Não)
+\end{itemize}
+
+\subsubsection{3. Entropia de cada subconjunto}
+
+\textbf{Sol:}
+\begin{equation}
+E(\text{Sol}) = -\frac{2}{5}\log_2\left(\frac{2}{5}\right) - \frac{3}{5}\log_2\left(\frac{3}{5}\right) = 0.971
+\end{equation}
+
+\textbf{Nublado:}
+\begin{equation}
+E(\text{Nublado}) = -\frac{4}{4}\log_2\left(\frac{4}{4}\right) - \frac{0}{4}\log_2\left(\frac{0}{4}\right) = 0
+\end{equation}
+
+Nota: quando $p=0$ ou $p=1$, consideramos $0\log_2(0) = 0$
+
+\textbf{Chuva:}
+\begin{equation}
+E(\text{Chuva}) = -\frac{3}{5}\log_2\left(\frac{3}{5}\right) - \frac{2}{5}\log_2\left(\frac{2}{5}\right) = 0.971
+\end{equation}
+
+\subsubsection{4. Entropia ponderada}
+
+\begin{align}
+E_{\text{ponderada}} &= \frac{5}{14}(0.971) + \frac{4}{14}(0) + \frac{5}{14}(0.971) \\
+&= 0.347 + 0 + 0.347 = 0.694
+\end{align}
+
+\subsubsection{5. Ganho de Informação}
+
+\begin{equation}
+\text{Ganho(Tempo)} = 0.940 - 0.694 = 0.246
+\end{equation}
+
+\section{Dicas para Cálculo Manual}
+
+\begin{enumerate}
+    \item \textbf{Use calculadora} para os logaritmos base 2. Conversão: $\log_2(x) = \frac{\ln(x)}{\ln(2)}$
+    
+    \item \textbf{Valores úteis:}
+    \begin{itemize}
+        \item $\log_2(1) = 0$
+        \item $\log_2(2) = 1$
+        \item $\log_2(4) = 2$
+    \end{itemize}
+    
+    \item \textbf{Organize em tabela:} Monte uma tabela com as contagens para cada atributo
+    
+    \item \textbf{Verifique:} O ganho sempre será entre 0 e a entropia inicial
+    
+    \item \textbf{Atributo ideal:} Escolha o atributo com \textbf{maior ganho de informação}
+\end{enumerate}
+
+\section{Resumo}
+
+O processo completo para calcular o ganho de informação manualmente consiste em:
+
+\begin{equation}
+\boxed{\text{Ganho}(S, A) = \text{Entropia}(S) - \sum_{v} \frac{|S_v|}{|S|} \times \text{Entropia}(S_v)}
+\end{equation}
+
+Onde cada entropia é calculada como:
+
+\begin{equation}
+\boxed{\text{Entropia}(S) = -\sum_{i=1}^{c} p_i \log_2(p_i)}
+\end{equation}
+
+\end{document}
