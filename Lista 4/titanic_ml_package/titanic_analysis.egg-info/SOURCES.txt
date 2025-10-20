@@ -1,0 +1,8 @@
+README.md
+setup.py
+titanic_analysis.egg-info/PKG-INFO
+titanic_analysis.egg-info/SOURCES.txt
+titanic_analysis.egg-info/dependency_links.txt
+titanic_analysis.egg-info/entry_points.txt
+titanic_analysis.egg-info/requires.txt
+titanic_analysis.egg-info/top_level.txt

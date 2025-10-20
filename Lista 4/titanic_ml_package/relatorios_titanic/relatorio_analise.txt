@@ -1,0 +1,29 @@
+================================================================================
+RELATÓRIO DE ANÁLISE - TITANIC DATASET
+Data de Geração: 19/10/2025 23:07:38
+================================================================================
+
+COMPARAÇÃO DE MODELOS
+--------------------------------------------------------------------------------
+                 model_name  train_acc  test_acc  test_precision_0  test_recall_0  test_f1_0  test_precision_1  test_recall_1  test_f1_1  roc_auc  cv_mean  cv_std
+   Decision Tree (Baseline)     0.8553    0.7765            0.7869         0.8727     0.8276            0.7544         0.6232     0.6825   0.8287   0.7922  0.0255
+   Random Forest (Baseline)     0.8919    0.7933            0.7967         0.8909     0.8412            0.7857         0.6377     0.7040   0.8464   0.8189  0.0324
+      Decision Tree (SMOTE)     0.8588    0.7542            0.7619         0.8727     0.8136            0.7358         0.5652     0.6393   0.8071   0.8190  0.0366
+      Random Forest (SMOTE)     0.8998    0.8101            0.8220         0.8818     0.8509            0.7869         0.6957     0.7385   0.8370   0.8430  0.0497
+Decision Tree (Undersample)     0.8223    0.7877            0.8103         0.8545     0.8319            0.7460         0.6812     0.7121   0.8278   0.7583  0.0361
+Random Forest (Undersample)     0.8864    0.7877            0.8600         0.7818     0.8190            0.6962         0.7971     0.7432   0.8467   0.7913  0.0435
+
+MELHOR MODELO
+--------------------------------------------------------------------------------
+Modelo com melhor acurácia: Random Forest (SMOTE)
+Acurácia Test: 0.8101
+ROC-AUC: 0.8370
+
+GRÁFICOS GERADOS
+--------------------------------------------------------------------------------
+- accuracy_comparison: relatorios_titanic/1_accuracy_comparison.png
+- f1_comparison: relatorios_titanic/2_f1_comparison.png
+- precision_recall: relatorios_titanic/3_precision_recall.png
+- roc_curves: relatorios_titanic/4_roc_curves.png
+- feature_importance: relatorios_titanic/5_feature_importance.png
+- confusion_matrix: relatorios_titanic/6_confusion_matrix.png

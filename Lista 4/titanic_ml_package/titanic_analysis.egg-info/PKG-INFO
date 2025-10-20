@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: titanic-analysis
+Version: 1.0.0
+Summary: Análise comparativa de ML para o dataset Titanic
+Home-page: https://github.com/seu-usuario/titanic-analysis
+Author: Lucas
+Author-email: seu.email@exemplo.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+
+UNKNOWN
+
