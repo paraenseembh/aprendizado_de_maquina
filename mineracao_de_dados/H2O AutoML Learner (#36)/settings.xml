@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+    <entry key="node_file" type="xstring" value="settings.xml"/>
+    <config key="flow_stack"/>
+    <config key="internal_node_subsettings">
+        <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+    </config>
+    <config key="model">
+        <entry key="CFG_TARGETCOLUMN" type="xstring" value="Q00201"/>
+        <entry key="CFG_ISIGNORECONSTCOLUMNS" type="xboolean" value="false"/>
+        <config key="CFG_IGNOREDCOLUMNS"/>
+        <entry key="CFG_FRAMEPORTIDX" type="xint" value="0"/>
+        <config key="CFG_COL_SELECTION">
+            <entry key="filter-type" type="xstring" value="STANDARD"/>
+            <config key="included_names">
+                <entry key="array-size" type="xint" value="17"/>
+                <entry key="0" type="xstring" value="D001"/>
+                <entry key="1" type="xstring" value="M005010"/>
+                <entry key="2" type="xstring" value="M01601"/>
+                <entry key="3" type="xstring" value="N010"/>
+                <entry key="4" type="xstring" value="N011"/>
+                <entry key="5" type="xstring" value="N016"/>
+                <entry key="6" type="xstring" value="P02601"/>
+                <entry key="7" type="xstring" value="P034"/>
+                <entry key="8" type="xstring" value="P038"/>
+                <entry key="9" type="xstring" value="P039"/>
+                <entry key="10" type="xstring" value="P044"/>
+                <entry key="11" type="xstring" value="P046"/>
+                <entry key="12" type="xstring" value="VDF004"/>
+                <entry key="13" type="xstring" value="VDM001"/>
+                <entry key="14" type="xstring" value="Status_N017"/>
+                <entry key="15" type="xstring" value="Status_P02002"/>
+                <entry key="16" type="xstring" value="Status_P02602"/>
+            </config>
+            <config key="excluded_names">
+                <entry key="array-size" type="xint" value="1"/>
+                <entry key="0" type="xstring" value="Status_P02801"/>
+            </config>
+            <entry key="enforce_option" type="xstring" value="EnforceExclusion"/>
+            <config key="name_pattern">
+                <entry key="pattern" type="xstring" value=""/>
+                <entry key="type" type="xstring" value="Wildcard"/>
+                <entry key="caseSensitive" type="xboolean" value="true"/>
+                <entry key="excludeMatching" type="xboolean" value="false"/>
+            </config>
+            <config key="datatype">
+                <config key="typelist">
+                    <entry key="org.knime.core.data.StringValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.BooleanValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.IntValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.DoubleValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.LongValue" type="xboolean" value="false"/>
+                    <entry key="org.knime.core.data.date.DateAndTimeValue" type="xboolean" value="false"/>
+                </config>
+            </config>
+        </config>
+        <entry key="CFG_MAXRUNTIMEINSECS" type="xint" value="3600"/>
+        <entry key="CFG_ISMAXRUNTIMEINSECS" type="xboolean" value="false"/>
+        <entry key="CFG_MAXRUNTIMEINSECSPERMODEL" type="xint" value="10"/>
+        <entry key="CFG_ISMAXRUNTIMEINSECSPERMODEL" type="xboolean" value="false"/>
+        <entry key="CFG_MAXNUMBEROFMODELS" type="xint" value="100"/>
+        <entry key="CFG_ISMAXNUMBEROFMODELS" type="xboolean" value="false"/>
+        <entry key="CFG_NFOLDS" type="xint" value="5"/>
+        <entry key="CFG_SORTMETRIC" type="xstring" value="MSE"/>
+        <entry key="CFG_INCLUDEDRF" type="xboolean" value="false"/>
+        <entry key="CFG_INCLUDEGLM" type="xboolean" value="false"/>
+        <entry key="CFG_INCLUDEGBM" type="xboolean" value="false"/>
+        <entry key="CFG_INCLUDEDEEPLEARNING" type="xboolean" value="true"/>
+        <entry key="CFG_INCLUDESTACKEDENSEMBLE" type="xboolean" value="false"/>
+        <entry key="CFG_USEFOLDCOLUMN" type="xboolean" value="false"/>
+        <entry key="CFG_FOLDCOLUMN" type="xstring" value="Status_P02602"/>
+        <entry key="CFG_SEED" type="xlong" value="1764639906788"/>
+        <entry key="CFG_ISSTATICSEED" type="xboolean" value="true"/>
+        <entry key="CFG_STOPPINGROUNDS" type="xint" value="3"/>
+        <entry key="CFG_MAXTOLERANCE" type="xdouble" value="0.001"/>
+        <entry key="CFG_ISEARLYSTOPPING" type="xboolean" value="true"/>
+        <entry key="CFG_VALIDATIONFRAMESIZE" type="xint" value="15"/>
+        <entry key="CFG_STOPPINGMETRIC" type="xstring" value="Auto"/>
+        <entry key="CFG_WCOLUMN" type="xstring" isnull="true" value=""/>
+        <entry key="CFG_BALANCECLASSES" type="xboolean" value="false"/>
+        <entry key="CFG_MAXBALANCEAFTERSIZE" type="xfloat" value="5.0"/>
+        <config key="CFG_CLASSSAMPLINGFACTORS">
+            <entry key="array-size" type="xint" value="0"/>
+        </config>
+    </config>
+    <entry key="customDescription" type="xstring" isnull="true" value=""/>
+    <entry key="state" type="xstring" value="CONFIGURED"/>
+    <config key="nodecontainer_message">
+        <entry key="type" type="xstring" value="ERROR"/>
+        <entry key="message" type="xstring" value="Execute failed: Frame _a1fc4d7aaa5a607a16e6d2ab63774f35 doesn't exist on cloud anymore. Please re-execute workflow!"/>
+    </config>
+    <entry key="factory" type="xstring" value="org.knime.ext.h2o.nodes.learner.automl.classification.H2OAutoMLClassificationNodeFactory"/>
+    <entry key="node-name" type="xstring" value="H2O AutoML Learner"/>
+    <entry key="node-bundle-name" type="xstring" value="KNIME H2O Machine Learning Integration"/>
+    <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.ext.h2o"/>
+    <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-bundle-version" type="xstring" value="5.2.0.v202310301555"/>
+    <entry key="node-feature-name" type="xstring" value="KNIME H2O Machine Learning Integration"/>
+    <entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.ext.h2o.feature.group"/>
+    <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-feature-version" type="xstring" value="5.2.0.v202310301555"/>
+    <config key="factory_settings"/>
+    <entry key="name" type="xstring" value="H2O AutoML Learner"/>
+    <entry key="hasContent" type="xboolean" value="false"/>
+    <entry key="isInactive" type="xboolean" value="false"/>
+    <config key="ports">
+        <config key="port_1">
+            <entry key="index" type="xint" value="1"/>
+            <entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+        </config>
+        <config key="port_2">
+            <entry key="index" type="xint" value="2"/>
+            <entry key="port_dir_location" type="xstring" isnull="true" value=""/>
+        </config>
+    </config>
+    <config key="filestores">
+        <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" isnull="true" value=""/>
+    </config>
+</config>
